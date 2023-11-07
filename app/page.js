@@ -8,12 +8,19 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 
+
+function makePublicUrl(path) {
+  const githubRow = "https://raw.githubusercontent.com/EZ-HKU/Wiki/main/public";
+  return githubRow + path;
+}
+
+
 export default function Home() {
 
   // load markdown from public/README.md
   const [markdown, setMarkdown] = useState("");
   useEffect(() => {
-    fetch("/UniScript.md")
+    fetch(makePublicUrl("/UniScript.md"))
       .then((response) => response.text())
       .then((text) => setMarkdown(text));
   }, []);
