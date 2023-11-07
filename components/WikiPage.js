@@ -14,11 +14,14 @@ function makePublicUrl(path) {
   return githubRow + path;
 }
 
+const loadMarkdown = `# Loading...
+If this page does not load, please check your internet connection.`;
+
 
 export default function WikiPage({ fileName }) {
 
   // load markdown from public/README.md
-  const [markdown, setMarkdown] = useState("");
+  const [markdown, setMarkdown] = useState(loadMarkdown);
   useEffect(() => {
     fetch(makePublicUrl(fileName))
       .then((response) => response.text())
