@@ -9,7 +9,7 @@ export default function Home() {
   const searchParams = useSearchParams();
   const page = searchParams.get("page");
   if (page) {
-    return <WikiPage fileName={page + ".md"} />;
+    return <WikiPage fileName={"/" + page + ".md"} />;
   }
 
   return (
