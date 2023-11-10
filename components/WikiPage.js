@@ -23,7 +23,8 @@ export default function WikiPage({ fileName }) {
   // load markdown from public/README.md
   const [markdown, setMarkdown] = useState(loadMarkdown);
   useEffect(() => {
-    fetch(makePublicUrl(fileName))
+    // fetch(makePublicUrl(fileName))
+    fetch(fileName)
       .then((response) => response.text())
       .then((text) => setMarkdown(text));
   }, [fileName]);
